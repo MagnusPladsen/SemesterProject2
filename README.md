@@ -20,21 +20,13 @@ All API functionality is managed by an existing application. This project only c
 The client has specified the following requirements in the form of User Stories:
 </br>
 - A user with a stud.noroff.no email may register
-- </br>
 - A registered user may login
-- </br>
 - A registered user may logout
-- </br>
 - A registered user may update their avatar
-- </br>
 - A registered user may view their total credit
-- </br>
 - A registered user may create a Listing with a title, deadline date, media gallery and description
-- </br>
 - A registered user may add a Bid to another user’s Listing
-- </br>
 - A registered user may view Bids made on a Listing
-- </br>
 - An unregistered user may search through Listings
 
 
