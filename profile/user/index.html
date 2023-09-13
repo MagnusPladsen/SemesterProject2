@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NorOn - Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="social, media, noroff, school, student, students, community"
+    />
+    <meta
+      name="description"
+      content="A social media platform for students @Noroff"
+    />
+    <meta name="author" content="Magnus Pladsen" />
+    <meta name="language" content="English" />
+    <link rel="icon" href="/src/images/favicon.svg" />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <link rel="stylesheet" href="/dist/css/output.css" />
+    <script type="module" src="/src/js/index.mjs" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative"
+      >
+        <div
+          class="text-white text-2xl hover:underline hover:underline-offset-2"
+        >
+          <a href="/">NorOn</a>
+        </div>
+        <img
+          src="/src/images/hamburger.svg"
+          alt="hamburger menu"
+          class="w-10 h-10 lg:hidden"
+          id="hamburger"
+        />
+        <ul
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
+          id="navList"
+        >
+          <li
+            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
+          >
+            <a href="/index.html"> Home </a>
+          </li>
+          <li
+            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
+          >
+            <a href="/posts"> Posts </a>
+          </li>
+          <li
+            class="hover:cursor-pointer hover:opacity-100 underline underline-offset-4 transition-all"
+          >
+            <a href="/profile/"> Profile </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="text-center">
+      <section class="w-fit mx-auto">
+        <div class="flex justify-center items-center pb-10 flex-col gap-3">
+          <img
+            id="profileBanner"
+            src="/src/images/bannerPlaceHolder.svg"
+            alt="Profile picture"
+            class="absolute object-cover w-[100vw] h-[300px] -z-10 top-20 lg:top-16"
+          />
+          <img
+            id="profilePicture"
+            src="/src/images/profilePlaceHolder.svg"
+            alt="Profile picture"
+            class="border-white border-2 rounded-full object-cover mt-8 h-[150px] w-[150px]"
+          />
+          <div class="flex justify-start absolute top-24 right-4 mx-auto gap-3">
+            <button
+              id="followButton"
+              class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
+            >
+              Follow
+            </button>
+            <button
+              id="unFollowButton"
+              class="hidden px-4 py-2 border bg-red-500 hover:text-red-500 border-red-500 hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
+            >
+              Unfollow
+            </button>
+          </div>
+          <h1 id="profileTitle" class="text-4xl text-white">Loading...</h1>
+          <div class="flex gap-4 items-center justify-center text-white">
+            <p>
+              Followers: <span id="profileFollowers" class="font-bold">0</span>
+            </p>
+            <p>
+              Following: <span id="profileFollowing" class="font-bold">0</span>
+            </p>
+            <p>Posts: <span id="profilePosts" class="font-bold">0</span></p>
+          </div>
+        </div>
+      </section>
+      <section class="pt-2 pb-20 md:px-[20vw] w-full">
+        <div>
+          <h2 class="text-2xl pt-10 pb-5">Posts</h2>
+          <div
+            id="postsContainer"
+            class="pt-5 flex flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
+          >
+            You have not posted anything yet...
+            <button
+              type="submit"
+              class="hidden px-4 py-2 border hover:bg-secondary bg-white hover:text-white text-secondary border-secondary rounded w-fit mx-auto transition-all hover:scale-110"
+            >
+              Edit post
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div
+        class="bg-red-500 sticky py-5 w-full bottom-0 flex items-center justify-center"
+      >
+        <p class="text-white">&copy; Magnus Pladsen 2023</p>
+      </div>
+    </footer>
+  </body>
+</html>

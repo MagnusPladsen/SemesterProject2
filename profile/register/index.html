@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NorOn - Register</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="social, media, noroff, school, student, students, community"
+    />
+    <meta
+      name="description"
+      content="A social media platform for students @Noroff"
+    />
+    <meta name="author" content="Magnus Pladsen" />
+    <meta name="language" content="English" />
+    <link rel="icon" href="/src/images/favicon.svg" />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <link rel="stylesheet" href="/dist/css/output.css" />
+    <script type="module" src="/src/js/index.mjs" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative"
+      >
+        <div
+          class="text-white text-2xl hover:underline hover:underline-offset-2"
+        >
+          <a href="/">NorOn</a>
+        </div>
+        <img
+          src="/src/images/hamburger.svg"
+          alt="hamburger menu"
+          class="w-10 h-10 lg:hidden"
+          id="hamburger"
+        />
+        <ul
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
+          id="navList"
+        >
+          <li
+            class="hover:cursor-pointer hover:opacity-100 opacity-70 transition-all"
+          >
+            <a href="/"> Log in </a>
+          </li>
+          <li
+            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all group"
+          >
+            <a href="/profile/register/"> Register </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="text-center py-10">
+      <h1 class="text-2xl py-5">Register new user</h1>
+      <form class="w-fit mx-auto flex flex-col gap-5" id="registerForm">
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="name">Name</label>
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="text"
+            name="name"
+            id="name"
+            pattern="^[\w]+$"
+            maxlength="20"
+            title="Username must only contain lowercase letters, uppercase letters, numbers and underscores. Example: UserName_123"
+            required
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="email">Email</label>
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="email"
+            name="email"
+            id="email"
+            pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+            title="Email must be a valid Noroff email. Example: john@stud.noroff.no, smith@noroff.no."
+            required
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="password">Password</label>
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="password"
+            name="password"
+            id="password"
+            minlength="8"
+            required
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="banner"
+            >Banner<span class="pl-2 text-gray-400 text-xs"
+              >*Optional</span
+            ></label
+          >
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="url"
+            name="banner"
+            id="banner"
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="avatar"
+            >Avatar<span class="pl-2 text-gray-400 text-xs"
+              >*Optional</span
+            ></label
+          >
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="url"
+            name="avatar"
+            id="avatar"
+          />
+        </div>
+        <p
+          id="error"
+          class="hidden rounded text-red-500 p-2 bg-red-200 border border-red-500"
+        ></p>
+        <button
+          class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
+          type="submit"
+        >
+          Register
+        </button>
+      </form>
+      <div
+        class="pt-5 text-sm hover:cursor-pointer hover:underline hover:underline-offset-2 transition-all"
+      >
+        <a href="/">Already an user?</a>
+      </div>
+    </main>
+
+    <footer>
+      <div
+        class="bg-red-500 absolute py-5 w-full bottom-0 flex items-center justify-center"
+      >
+        <p class="text-white">&copy; Magnus Pladsen 2023</p>
+      </div>
+    </footer>
+  </body>
+</html>
