@@ -24,7 +24,7 @@ export function headers() {
  * @example
  * const response = await authFetch(url, {
  * method,
- * body,
+ * description,
  * });
  * return await response.json();
  */

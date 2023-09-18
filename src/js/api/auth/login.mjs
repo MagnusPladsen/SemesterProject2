@@ -36,6 +36,8 @@ export async function login(profileData) {
     });
     const data = await response.json();
 
+    console.log(data)
+
     if (data.errors) {
       error.classList.remove("hidden");
       error.innerHTML = data.errors[0].message;
@@ -51,14 +53,11 @@ export async function login(profileData) {
 
     storage.saveToken(accessToken);
 
-    // get full profile with following and followers array
-    const fullProfile = await profile.getProfile(user.name);
-
-    storage.saveProfile(fullProfile);
+    storage.saveProfile(user);
 
     // redirect to profile page if logged in successfully
     if (storage.checkIfLoggedIn()) {
-      window.location.href = "/posts/";
+      window.location.href = "/listings/";
     }
   } catch (error) {
     console.log(error);

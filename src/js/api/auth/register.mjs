@@ -15,8 +15,7 @@ const method = "POST";
  *  name: "username",
  *  password: "password",
  *  email: "email@noroff.no",
- *  avatar: "url",
- *  banner: "url",
+ *  avatar: "url"
  * };
  * register(profile);
  */

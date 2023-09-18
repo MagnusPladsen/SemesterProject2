@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NorOn - Home</title>
+    <title>NorAuc - Home</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -12,7 +12,7 @@
       name="description"
       content="A social media platform for students @Noroff"
     />
-    <meta name="author" content="Magnus Pladsen" />
+    <meta name="seller" content="Magnus Pladsen" />
     <meta name="language" content="English" />
     <link rel="icon" href="/src/images/favicon.svg" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
@@ -22,12 +22,17 @@
   <body>
     <header>
       <nav
-        class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative"
+        class="flex px-[10vw] md:px-10 py-5 bg-primary justify-between relative"
       >
         <div
-          class="text-white text-2xl hover:underline hover:underline-offset-2"
+          class="text-white text-2xl hover:underline hover:underline-offset-2 hover:opacity-80 flex gap-2 justify-center items-center transition-all"
         >
-          <a href="/">NorOn</a>
+          <img
+            src="/src/images/favicon.svg"
+            alt="logo"
+            class="w-10 h-10 inline-block mr-2"
+          />
+          <a href="/">NorAuc</a>
         </div>
         <img
           src="/src/images/hamburger.svg"
@@ -37,7 +42,7 @@
         />
         <ul
           id="navList"
-          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-primary w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
         >
           <li
             class="hover:cursor-pointer transition-all underline underline-offset-4 opacity-100"
@@ -51,11 +56,11 @@
       </nav>
     </header>
     <main class="text-center w-full py-10 md:px-[20vw]">
-      <h1 class="text-2xl py-5">Recent posts</h1>
+      <h1 class="text-2xl py-5">Recent listings</h1>
       <div
         class="flex gap-5 px-[5vw] md:px-0 flex-col mx-auto items-start md:justify-between md:flex-row w-full md:w-fit md:mx-auto"
       >
-        <form id="sortPostsForm" class="flex gap-2 h-fit">
+        <form id="sortlistingsForm" class="flex gap-2 h-fit">
           <select
             id="sortType"
             name="sortType"
@@ -65,8 +70,8 @@
             <option value="asc">Oldest</option>
           </select>
           <button
-            id="sortPostsButton"
-            class="px-2 py-1 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+            id="sortlistingsButton"
+            class="px-2 py-1 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
             type="submit"
           >
             Sort
@@ -80,9 +85,10 @@
             name="filterByTag"
             id="filterByTag"
             pattern="^[A-Za-z0-9]*$"
+            placeholder="Sarch by tag..."
           /><button
             id="filterByTagButton"
-            class="px-2 py-1 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+            class="px-2 py-1 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
             type="submit"
           >
             Search
@@ -91,7 +97,7 @@
         <div class="absolute w-full md:static md:w-fit">
           <button
             id="resetButton"
-            class=" px-2 py-1 border bg-white hover:text-white border-secondary hover:bg-secondary rounded w-fit mx-auto text-secondary transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+            class="px-2 py-1 border bg-white hover:text-white border-primary hover:bg-primary rounded w-fit mx-auto text-primary transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
             type="reset"
           >
             Reset
@@ -99,15 +105,15 @@
         </div>
       </div>
       <div
-        id="postsContainer"
-        class="pt-5 flex flex-col w-fit lg:flex-row lg:flex-wrap  mx-auto px-[5vw] gap-5"
+        id="listingsContainer"
+        class="pt-5 flex flex-col w-fit lg:flex-row lg:flex-wrap mx-auto px-[5vw] gap-5"
       >
-        Loading posts...
+        Loading listings...
         <div
-          class="group hover:cursor-pointer hover:border-red-500 hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow p-4 flex flex-col gap-4 transition-all w-full md:max-w-[400px] md:mx-auto  justify-between"
+          class="group hover:cursor-pointer hover:border-primary hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow p-4 flex flex-col gap-4 transition-all w-full md:max-w-[400px] md:mx-auto justify-between"
         >
           <p
-            class="text-lg font-bold transition-all group-hover:text-red-500"
+            class="text-lg font-bold transition-all group-hover:text-primary"
           ></p>
           <div
             class="flex items-center justify-between w-full gap-5 text-xs font-bold text-gray-400 pb-4"
@@ -123,7 +129,7 @@
 
     <footer>
       <div
-        class="bg-red-500 sticky py-5 w-full bottom-0 flex items-center justify-center"
+        class="bg-primary sticky py-5 w-full bottom-0 flex items-center justify-center"
       >
         <p class="text-white">&copy; Magnus Pladsen 2023</p>
       </div>

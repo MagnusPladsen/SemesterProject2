@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NorAuc - Edit profile</title>
+    <title>NorAuc - Listing</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -44,53 +44,61 @@
           class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-primary w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
           id="navList"
         >
-          <li
-            class="hover:cursor-pointer hover:opacity-100 opacity-70 transition-all"
-          >
-            <a href="/"> Log in </a>
+          <li class="hover:cursor-pointer transition-all">
+            <a href="/index.html"> Home </a>
           </li>
           <li
-            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all group"
+            class="hover:cursor-pointer underline underline-offset-4 opacity-100 transition-all"
           >
-            <a href="/profile/register/"> Register </a>
+            <a href="/listings"> listings </a>
+          </li>
+          <li
+            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
+          >
+            <a href="/profile/"> Profile </a>
           </li>
         </ul>
       </nav>
     </header>
     <main class="text-center py-10">
-      <h1 class="text-2xl py-5">Edit profile</h1>
-      <form class="w-fit mx-auto flex flex-col gap-5" id="editProfileForm">
-        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="avatar"
-            >Avatar<span class="pl-2 text-gray-400 text-xs"
-              >*Optional</span
-            ></label
-          >
-          <input
-            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="url"
-            name="avatar"
-            id="avatar"
-          />
+      <h1 id="listingTitle" class="text-2xl py-5">Listing</h1>
+      <div
+        class="pt-5 pb-20 flex flex-col items-center justify-center gap-10 max-w-[700px] mx-auto"
+      >
+        <p id="listingContent" class="w-full text-left">Content loading...</p>
+        <div id="listingMedia" class="flex flex-col gap-5"></div>
+        <div class="w-full flex flex-col gap-5">
+          <div class="flex justify-between w-full pt-2 gap-5">
+            <p id="listingBids" class="text-sm text-left">Bids</p>
+            <p id="listingDate" class="text-xs">01.01.2001</p>
+          </div>
+          <div class="flex justify-between w-full gap-5">
+            <p id="listingTags" class="text-sm text-left"></p>
+            <div id="listingSeller" class="text-xs flex gap-2 items-center">
+              Seller
+            </div>
+          </div>
         </div>
-          <p
-            id="error"
-            class="hidden rounded text-red-500 p-2 border border-red-500"
-          ></p>
-        <button
-          id="saveProfileButton"
-          disabled
-          class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+      </div>
+      <button
+        id="deleteListing"
+        class="px-4 py-2 border bg-white hover:text-white border-red-500 hover:bg-red-500 rounded w-fit mx-auto text-red-500 transition-all hover:scale-110"
+      >
+        Delete
+      </button>
+      <a href="/listings/"
+        ><button
+          class="px-4 py-2 border bg-white hover:text-white border-primary hover:bg-primary rounded w-fit mx-auto text-primary transition-all hover:scale-110"
           type="submit"
         >
-          Save profile
-        </button>
-      </form>
+          Back to listings
+        </button></a
+      >
     </main>
 
     <footer>
       <div
-        class="bg-primary absolute py-5 w-full bottom-0 flex items-center justify-center"
+        class="bg-primary absolute py-5 w-full flex items-center justify-center"
       >
         <p class="text-white">&copy; Magnus Pladsen 2023</p>
       </div>

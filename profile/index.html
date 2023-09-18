@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NorOn - Profile</title>
+    <title>NorAuc - Profile</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -12,7 +12,7 @@
       name="description"
       content="A social media platform for students @Noroff"
     />
-    <meta name="author" content="Magnus Pladsen" />
+    <meta name="seller" content="Magnus Pladsen" />
     <meta name="language" content="English" />
     <link rel="icon" href="/src/images/favicon.svg" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
@@ -22,12 +22,17 @@
   <body>
     <header>
       <nav
-        class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative"
+        class="flex px-[10vw] md:px-10 py-5 bg-primary justify-between relative"
       >
         <div
-          class="text-white text-2xl hover:underline hover:underline-offset-2"
+          class="text-white text-2xl hover:underline hover:underline-offset-2 hover:opacity-80 flex gap-2 justify-center items-center transition-all"
         >
-          <a href="/">NorOn</a>
+          <img
+            src="/src/images/favicon.svg"
+            alt="logo"
+            class="w-10 h-10 inline-block mr-2"
+          />
+          <a href="/">NorAuc</a>
         </div>
         <img
           src="/src/images/hamburger.svg"
@@ -36,7 +41,7 @@
           id="hamburger"
         />
         <ul
-          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-primary w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
           id="navList"
         >
           <li
@@ -47,7 +52,7 @@
           <li
             class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
           >
-            <a href="/posts"> Posts </a>
+            <a href="/listings"> listings </a>
           </li>
           <li
             class="hover:cursor-pointer hover:opacity-100 underline underline-offset-4 transition-all"
@@ -57,30 +62,22 @@
         </ul>
       </nav>
     </header>
-    <main class="text-center">
+    <main class="text-center bg-white">
       <section class="w-fit mx-auto">
         <div class="flex justify-center items-center pb-10 flex-col gap-3">
-          <img
-            id="profileBanner"
-            src="/src/images/bannerPlaceHolder.svg"
-            alt="Profile picture"
-            class="absolute object-cover w-[100vw] h-[300px] -z-10 top-20 lg:top-16"
-          />
           <img
             id="profilePicture"
             src="/src/images/profilePlaceHolder.svg"
             alt="Profile picture"
-            class="border-white border-2 rounded-full object-cover mt-8 h-[150px] w-[150px]"
+            class="border-primary border-2 rounded-full object-cover mt-8 h-[150px] w-[150px]"
           />
-          <h1 id="profileTitle" class="text-4xl text-white">Loading...</h1>
-          <div class="flex gap-4 items-center justify-center text-white">
+          <h1 id="profileTitle" class="text-4xl text-primary">Loading...</h1>
+          <div class="flex gap-4 items-center justify-center text-primary">
+            <p>Credits: <span id="profileCredits" class="font-bold">0</span></p>
+            <p>Wins: <span id="profileWins" class="font-bold">0</span></p>
             <p>
-              Followers: <span id="profileFollowers" class="font-bold">0</span>
+              Listings: <span id="profileListings" class="font-bold">0</span>
             </p>
-            <p>
-              Following: <span id="profileFollowing" class="font-bold">0</span>
-            </p>
-            <p>Posts: <span id="profilePosts" class="font-bold">0</span></p>
           </div>
         </div>
         <div
@@ -88,33 +85,49 @@
         >
           <a class="w-fit mx-auto" href="/profile/edit"
             ><button
-              class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
+              class="px-4 py-2 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
             >
               Edit profile
             </button></a
           >
           <button
             id="logOutButton"
-            class="px-4 py-2 border hover:bg-red-500 bg-white hover:text-white text-red-500 border-red-500 rounded w-fit mx-auto transition-all hover:scale-110"
+            class="px-4 py-2 border hover:bg-primary bg-white hover:text-white text-primary border-primary rounded w-fit mx-auto transition-all hover:scale-110"
           >
             Log out
           </button>
         </div>
       </section>
-      <section class="pt-4 pb-20 md:px-[20vw] w-full">
-        <div>
-          <h2 class="text-2xl pb-5">Your posts</h2>
+      <section class="pb-20 md:px-[20vw] w-full">
+        <div class="">
           <div
-            id="postsContainer"
+            class="flex flex-row gap-3 w-full mx-auto justify-center items-center"
+          >
+            <button
+              id="showListingsButton"
+              class="px-4 py-2 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit text-white transition-all hover:scale-110"
+            >
+              Show listings
+            </button>
+
+            <button
+              id="showListingWinsButton"
+              class="px-4 py-2 border hover:bg-primary bg-white hover:text-white text-primary border-primary rounded w-fit transition-all hover:scale-110"
+            >
+              Show wins
+            </button>
+          </div>
+          <div
+            id="listingsContainer"
             class="pt-5 flex flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
           >
-            You have not posted anything yet...
-            <button
-              type="submit"
-              class="hidden px-4 py-2 border hover:bg-secondary bg-white hover:text-white text-secondary border-secondary rounded w-fit mx-auto transition-all hover:scale-110"
-            >
-              Edit post
-            </button>
+            You have no listings yet...
+          </div>
+          <div
+            id="listingWinsContainer"
+            class="hidden pt-5 flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
+          >
+            You have no wins yet...
           </div>
         </div>
       </section>
@@ -122,7 +135,7 @@
 
     <footer>
       <div
-        class="bg-red-500 sticky py-5 w-full bottom-0 flex items-center justify-center"
+        class="bg-primary sticky py-5 w-full flex items-center justify-center"
       >
         <p class="text-white">&copy; Magnus Pladsen 2023</p>
       </div>

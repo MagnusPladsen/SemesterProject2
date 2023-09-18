@@ -17,9 +17,6 @@ export function setEditFormListener() {
   }
 
   // prefill form
-  if (storedProfile.banner) {
-    form.banner.value = storedProfile.banner;
-  }
 
   if (storedProfile.avatar) {
     form.avatar.value = storedProfile.avatar;

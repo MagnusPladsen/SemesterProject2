@@ -1,31 +1,32 @@
 import { API_URL } from "../constants.mjs";
 import { authFetch } from "../auth/authFetch.mjs";
 
-const action = "/posts";
+const action = "/listings";
 const method = "POST";
 
 /**
  * @async
- * @module api/posts/create
- * @description This function sends a POST request to the API to create a post. It uses the authFetch function to send the request with the access token.
+ * @module api/listings/create
+ * @description This function sends a POST request to the API to create a listing. It uses the authFetch function to send the request with the access token.
  * @see module:authFetch
- * @param {object} post - Post data from the create post form.
+ * @param {object} listing - Listing data from the create listing form.
  * @returns {void}
  * @throws {error} An error is thrown if the API call fails.
  * @example
- * const postData = {
+ * const listingData = {
  *  title: "title",
- *  body: "body",
+ *  description: "description",
+ * endsAt: "2021-12-31T23:59:59.999Z",
  *  media: "url",
  *  tags: ["tag1", "tag2"],
  * };
- * createPost(postData);
+ * createListing(listingData);
  *
  */
 
-export async function createPost(post) {
+export async function createListing(listing) {
   const url = `${API_URL}${action}`;
-  const body = JSON.stringify(post);
+  const body = JSON.stringify(listing);
 
   try {
     const response = await authFetch(url, {

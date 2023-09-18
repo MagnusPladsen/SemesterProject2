@@ -1,4 +1,4 @@
-import * as post from "../handlers/posts/index.mjs";
+import * as listing from "../handlers/listings/index.mjs";
 import * as profile from "../handlers/profile/index.mjs";
 import * as display from "../display/index.mjs";
 import * as storage from "../storage/index.mjs";
@@ -19,13 +19,13 @@ export default function router() {
   switch (path) {
     case "/":
       if (storage.checkIfLoggedIn()) {
-        window.location.href = "/posts/";
+        window.location.href = "/listings/";
       }
       profile.setLoginFormListener();
       break;
     case "/index.html":
       if (storage.checkIfLoggedIn()) {
-        window.location.href = "/posts/";
+        window.location.href = "/listings/";
       }
       profile.setLoginFormListener();
       break;
@@ -43,18 +43,21 @@ export default function router() {
     case "/profile/edit/":
       profile.setEditFormListener();
       break;
-    case "/post/":
-      display.displayPost();
+    case "/profile/listing/":
+      display.displayListing();
       break;
-    case "/post/new/":
-      post.setCreatePostListener();
+    case "/listing/":
+      display.displayListing();
       break;
-    case "/post/edit/":
-      post.setUpdatePostListener();
+    case "/listing/new/":
+      listing.setCreateListingListener();
       break;
-    case "/posts/":
-      display.displayPosts();
-      post.setSearchAndFilterListener();
+    case "/listing/edit/":
+      listing.setUpdateListingListener();
+      break;
+    case "/listings/":
+      display.displaylistings();
+      listing.setSearchAndFilterListener();
       break;
     default:
       break;

@@ -10,7 +10,7 @@
  * name: "John Doe",
  * avatar: "/src/images/whiteProfilePlaceHolder.svg",
  * };
- * const path = "/posts/";
+ * const path = "/listings/";
  * displayLoggedInNavBar(navList, profile, path)
  */
 
@@ -18,19 +18,19 @@ export function displayLoggedInNavBar(navList, profile, path) {
   navList.innerHTML = `
   <li
   class="hover:cursor-pointer transition-all ${
-    path === "/posts/"
+    path === "/listings/"
       ? "opacity-100 underline underline-offset-4"
       : "opacity-70 hover:opacity-100 hover:underline hover:underline-offset-4"
   } "
 >
-  <a href="/posts/"> Home </a>
+  <a href="/listings/"> Home </a>
 </li>
 <li class="hover:cursor-pointer transition-all ${
-    path === "/post/new/"
+    path === "/listing/new/"
       ? "opacity-100 underline underline-offset-4"
       : "opacity-70 hover:opacity-100 hover:underline hover:underline-offset-4"
   } ">
-  <a href="/post/new"> New post </a>
+  <a href="/listing/new"> New listing </a>
 </li>
 <li
   class="hover:cursor-pointer  transition-all flex gap-2 items-center ${
@@ -47,9 +47,9 @@ src="${
     profile.avatar ? profile.avatar : "/src/images/whiteProfilePlaceHolder.svg"
   }"
 alt="Profile picture"
-height="15"
-width="25"
-class="rounded-full transition-all"
+height="30"
+width="30"
+class="rounded-full transition-all border-white border"
 />
 </li>
 `;
