@@ -30,13 +30,23 @@ export async function displayProfileListings(listingsList, listingsContainer) {
             <p class="">Ending: ${listing.endsAt.slice(0, 10)}
             </p>
                 <div class="flex gap-2">
-                <a href="/profile/listing/?id=${listing.id}"
+                ${
+                  path === "/profile/"
+                    ? `<a href="/profile/listing/?id=${listing.id}"
               ><button
               class="px-4 py-2 border hover:bg-primary bg-white hover:text-white text-primary border-primary rounded w-fit mx-auto transition-all hover:scale-110"
               >
                 View
               </button>
-            </a>
+            </a>`
+                    : `<a href="/listing/?id=${listing.id}"
+            ><button
+            class="px-4 py-2 border hover:bg-primary bg-white hover:text-white text-primary border-primary rounded w-fit mx-auto transition-all hover:scale-110"
+            >
+              View
+            </button>
+          </a>`
+                }
             ${
               path === "/profile/"
                 ? `

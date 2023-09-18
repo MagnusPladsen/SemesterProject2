@@ -22,7 +22,6 @@ export async function displayListing() {
 
   if (path === "/profile/listing/") {
     const deleteListing = document.querySelector("#deleteListing");
-    console.log(deleteListing);
     deleteListing.addEventListener("click", async (e) => {
       e.preventDefault();
       await listings.deleteListing(listing.id);

@@ -19,7 +19,7 @@ const method = "GET";
 export async function getProfile(name) {
   if (!name) throw new Error("Missing profile name");
 
-  const url = `${API_URL}${action}/${name}?_listings=true&_following=true&_followers=true`;
+  const url = `${API_URL}${action}/${name}?_listings=true`;
 
   const response = await authFetch(url, {
     method,

@@ -24,6 +24,7 @@ const showListingWinsButton = document.querySelector("#showListingWinsButton");
 
 export async function displayProfile(name) {
   const user = await profile.getProfile(name);
+  console.log(user);
   const buttonStyles = {
     active: [
       "px-4",
@@ -76,26 +77,28 @@ export async function displayProfile(name) {
     });
     display.displayProfileListings(user.wins.reverse(), listingWinsContainer);
   }
-  showListingsButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    listingsContainer.classList.remove("hidden");
-    listingsContainer.classList.add("flex");
-    listingWinsContainer.classList.remove("flex");
-    listingWinsContainer.classList.add("hidden");
-    showListingsButton.classList.remove(buttonStyles.nonActive);
-    showListingsButton.classList.add(buttonStyles.active);
-    showListingWinsButton.classList.remove(buttonStyles.active);
-    showListingWinsButton.classList.add(buttonStyles.nonActive);
-  });
-  showListingWinsButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    listingsContainer.classList.add("hidden");
-    listingsContainer.classList.remove("flex");
-    listingWinsContainer.classList.remove("hidden");
-    listingWinsContainer.classList.add("flex");
-    showListingWinsButton.classList.remove(buttonStyles.nonActive);
-    showListingWinsButton.classList.add(buttonStyles.active);
-    showListingsButton.classList.remove(buttonStyles.active);
-    showListingsButton.classList.add(buttonStyles.nonActive);
-  });
+  if (showListingsButton && showListingWinsButton) {
+    showListingsButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      listingsContainer.classList.remove("hidden");
+      listingsContainer.classList.add("flex");
+      listingWinsContainer.classList.remove("flex");
+      listingWinsContainer.classList.add("hidden");
+      /*  showListingsButton.classList.remove(buttonStyles.nonActive);
+      showListingsButton.classList.add(buttonStyles.active);
+      showListingWinsButton.classList.remove(buttonStyles.active);
+      showListingWinsButton.classList.add(buttonStyles.nonActive); */
+    });
+    showListingWinsButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      listingsContainer.classList.add("hidden");
+      listingsContainer.classList.remove("flex");
+      listingWinsContainer.classList.remove("hidden");
+      listingWinsContainer.classList.add("flex");
+      /* showListingWinsButton.classList.remove(buttonStyles.nonActive);
+      showListingWinsButton.classList.add(buttonStyles.active);
+      showListingsButton.classList.remove(buttonStyles.active);
+      showListingsButton.classList.add(buttonStyles.nonActive); */
+    });
+  }
 }

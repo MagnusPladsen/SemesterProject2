@@ -12,7 +12,7 @@
       name="description"
       content="A social media platform for students @Noroff"
     />
-    <meta name="seller" content="Magnus Pladsen" />
+    <meta name="developer" content="Magnus Pladsen" />
     <meta name="language" content="English" />
     <link rel="icon" href="/src/images/favicon.svg" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
@@ -71,46 +71,46 @@
             alt="Profile picture"
             class="border-white border-2 rounded-full object-cover mt-8 h-[150px] w-[150px]"
           />
-          <div class="flex justify-start absolute top-24 right-4 mx-auto gap-3">
-            <button
-              id="followButton"
-              class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-            >
-              Follow
-            </button>
-            <button
-              id="unFollowButton"
-              class="hidden px-4 py-2 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-            >
-              Unfollow
-            </button>
-          </div>
           <h1 id="profileTitle" class="text-4xl text-white">Loading...</h1>
-          <div class="flex gap-4 items-center justify-center text-white">
+          <div class="flex gap-4 items-center justify-center text-primary">
+            <p>Credits: <span id="profileCredits" class="font-bold">0</span></p>
+            <p>Wins: <span id="profileWins" class="font-bold">0</span></p>
             <p>
-              Followers: <span id="profileFollowers" class="font-bold">0</span>
+              Listings: <span id="profileListings" class="font-bold">0</span>
             </p>
-            <p>
-              Following: <span id="profileFollowing" class="font-bold">0</span>
-            </p>
-            <p>listings: <span id="profilelistings" class="font-bold">0</span></p>
           </div>
         </div>
       </section>
       <section class="pt-2 pb-20 md:px-[20vw] w-full">
         <div>
-          <h2 class="text-2xl pt-10 pb-5">listings</h2>
+          <div
+            class="flex flex-row gap-3 w-full mx-auto justify-center items-center"
+          >
+            <button
+              id="showListingsButton"
+              class="px-4 py-2 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit text-white transition-all hover:scale-110"
+            >
+              Show listings
+            </button>
+
+            <button
+              id="showListingWinsButton"
+              class="px-4 py-2 border hover:bg-primary bg-white hover:text-white text-primary border-primary rounded w-fit transition-all hover:scale-110"
+            >
+              Show wins
+            </button>
+          </div>
           <div
             id="listingsContainer"
             class="pt-5 flex flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
           >
-            You have not listinged anything yet...
-            <button
-              type="submit"
-              class="hidden px-4 py-2 border hover:bg-secondary bg-white hover:text-white text-secondary border-secondary rounded w-fit mx-auto transition-all hover:scale-110"
-            >
-              Edit listing
-            </button>
+            They have no listings yet...
+          </div>
+          <div
+            id="listingWinsContainer"
+            class="hidden pt-5 flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
+          >
+            They have no wins yet...
           </div>
         </div>
       </section>

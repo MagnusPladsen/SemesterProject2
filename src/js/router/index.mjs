@@ -35,7 +35,6 @@ export default function router() {
       break;
     case "/profile/user/":
       display.displayProfile(URL.getParams("name"));
-      profile.setFollowUserListener();
       break;
     case "/profile/register/":
       profile.setRegisterFormListener();
