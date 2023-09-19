@@ -80,21 +80,34 @@
           </div>
         </div>
       </div>
-      <a href="/listings/"
-        ><button
+      <div id="bidContainer" class="pb-5">
+        <p class="pb-5">
+          Your credits: <span id="profileCredits" class="font-bold">0</span>
+        </p>
+        <input
+          class="border border-gray-300 rounded px-2 py-2 hover:border-gray-500 transition-all shadow-inner"
+          type="text"
+          name="bidAmount"
+          id="bidAmount"
+          placeholder="Bid amount..."
+        />
+        <button
+          id="bidButton"
           class="px-4 py-2 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
         >
           Bid
-        </button></a
-      >
+        </button>
+      </div>
       <a href="/listings/"
         ><button
           class="px-4 py-2 border bg-white hover:text-white border-primary hover:bg-primary rounded w-fit mx-auto text-primary transition-all hover:scale-110"
-          type="submit"
         >
           Back to listings
         </button></a
       >
+      <div id="bidsContainer" class="pb-5 max-w-[700px] mx-auto">
+        
+      </div>
     </main>
 
     <footer>

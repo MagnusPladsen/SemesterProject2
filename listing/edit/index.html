@@ -72,37 +72,27 @@
           />
         </div>
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="body">Description</label>
+          <label class="text-left" for="description">Description</label>
           <textarea
             class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner h-40"
-            type="description"
+            type="text"
             name="description"
             id="description"
             required
           ></textarea>
         </div>
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="title">Listing end</label>
-          <input
-            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="date"
-            name="endsAt"
-            id="endsAt"
-            required
-          />
-          </div>
-        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
           <label class="text-left" for="media"
             >Media<span class="pl-2 text-gray-400 text-xs"
-              >*Optional</span
+              >*Optional, separate links with commas</span
             ></label
           >
-          <input
-            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="url"
+          <textarea
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner h-40"
+            type="text"
             name="media"
             id="media"
-          />
+          ></textarea>
         </div>
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
           <label class="text-left" for="tags"
@@ -117,12 +107,12 @@
             id="tags"
           />
         </div>
-          <p
-            id="error"
-            class="hidden rounded text-red-500 p-2 border border-red-500"
-          ></p>
+        <p
+          id="error"
+          class="hidden rounded text-red-500 p-2 border border-red-500"
+        ></p>
         <button
-          class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+          class="px-4 py-2 border bg-primary hover:text-primary border-primary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
           type="submit"
           id="editListingButton"
           disabled
@@ -134,7 +124,7 @@
 
     <footer>
       <div
-        class="bg-primary absolute py-5 w-full bottom-0 flex items-center justify-center"
+        class="bg-primary absolute py-5 w-full flex items-center justify-center"
       >
         <p class="text-white">&copy; Magnus Pladsen 2023</p>
       </div>

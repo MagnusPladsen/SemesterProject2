@@ -13,7 +13,6 @@ export async function setUpdateListingListener() {
   const form = document.querySelector("#editListingForm");
   const id = URL.getParams("id");
   const listing = await listings.getListing(id);
-  console.log(listing);
 
   if (!form) {
     return;
@@ -21,11 +20,11 @@ export async function setUpdateListingListener() {
 
   form.title.value = listing.title;
   form.description.value = listing.description;
-  form.endsAt.value = listing.endsAt.slice(0, 10);
+  /* form.endsAt.value = listing.endsAt.slice(0, 10); */
 
   // prefill form
   if (listing.media) {
-    form.media.value = listing.media;
+    form.media.value = listing.media.join(", ");
   }
 
   if (listing.tags) {
@@ -42,12 +41,13 @@ export async function setUpdateListingListener() {
     const listing = Object.fromEntries(formData.entries());
     // set up tags array
     listing.tags = listing.tags.split(",").map((tag) => tag.trim());
+    listing.media = listing.media.split(",").map((media) => media.trim());
     listing.id = id;
 
     // send to API
     const returnedListing = await listings.updateListing(listing);
 
     // redirect to listing page
-    window.location.href = `/listing/?id=${returnedListing.id}`;
+    window.location.href = `/profile/listing/?id=${returnedListing.id}`;
   });
 }

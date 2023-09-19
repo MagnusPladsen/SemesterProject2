@@ -13,7 +13,7 @@ const method = "GET";
 export async function getListing(id) {
   if (!id) throw new Error("Missing listing id");
 
-  const url = `${API_URL}${action}/${id}?_seller=true`;
+  const url = `${API_URL}${action}/${id}?_seller=true&_bids=true`;
 
   const response = await authFetch(url, {
     method,

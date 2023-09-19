@@ -26,7 +26,7 @@ const method = "PUT";
 export async function updateListing(listing) {
   if (!listing.id) throw new Error("Missing listing id");
 
-  const url = `${API_URL}${action}/${listing.id}}`;
+  const url = `${API_URL}${action}/${listing.id}`;
   const body = JSON.stringify(listing);
 
   const error = document.querySelector("#error");

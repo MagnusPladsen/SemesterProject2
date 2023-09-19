@@ -1,6 +1,7 @@
 import * as listings from "../../api/listings/index.mjs";
 import * as URL from "../../url/index.mjs";
 import * as storage from "../../storage/index.mjs";
+import { setBidOnListingListener } from "../../handlers/listings/bid.mjs";
 
 /**
  * @module display/listing
@@ -19,7 +20,9 @@ export async function displayListing() {
   if (!listing) {
     return;
   }
+  console.log(listing);
 
+  /* If on own listing */
   if (path === "/profile/listing/") {
     const deleteListing = document.querySelector("#deleteListing");
     deleteListing.addEventListener("click", async (e) => {
@@ -27,6 +30,20 @@ export async function displayListing() {
       await listings.deleteListing(listing.id);
       window.location.href = "/listings/";
     });
+    const editListing = document.querySelector("#editListing");
+    editListing.addEventListener("click", async (e) => {
+      e.preventDefault();
+      window.location.href = `/listing/edit/?id=${listing.id}`;
+    });
+  }
+
+  /* If on others listing */
+  if (path === "/listing/") {
+    const bidContainer = document.querySelector("#bidContainer");
+    if (new Date(listing.endsAt) < new Date()) {
+      bidContainer.innerHTML = `<p class="text-center">This listing has ended</p>`;
+    }
+    setBidOnListingListener();
   }
 
   const listingTitle = document.querySelector("#listingTitle");
@@ -36,6 +53,7 @@ export async function displayListing() {
   const listingMedia = document.querySelector("#listingMedia");
   const listingTags = document.querySelector("#listingTags");
   const listingBids = document.querySelector("#listingBids");
+  const bidsContainer = document.querySelector("#bidsContainer");
   listingTitle.innerHTML = listing.title;
   listingContent.innerHTML = listing.description;
   listingDate.innerHTML = `Ending: <span class="font-bold">${listing.created.slice(
@@ -81,6 +99,28 @@ export async function displayListing() {
   if (listing._count) {
     listingBids.innerHTML = `
       Bids: <span class="font-bold">${listing._count.bids}</span
+    `;
+  }
+  if (listing.bids.length > 0) {
+    bidsContainer.innerHTML = `
+    <div class="flex flex-col pt-10  ">
+      <h2 class="text-xl pb-5 font-bold underline ">Bids</h2>
+      ${listing.bids.map(
+        (bid) => `
+        <div class="flex flex-col gap-1 border py-2 px-4 bg-background rounded w-fit mx-auto text-left border-primary"><p>Amount: <span class="font-bold">${
+          bid.amount
+        }</span></p>
+        <p>Ending: <span class="font-bold">${bid.created.slice(
+          0,
+          10
+        )}</span></p>
+        <p class="">Bidder:
+       <a class="hover:font-bold" href="/profile/user?name=${bid.bidderName}">${
+          bid.bidderName === loggedInUser.name ? `You` : bid.bidderName
+        }</a>
+        </div>`
+      )}
+    </div>
     `;
   }
 }

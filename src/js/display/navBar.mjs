@@ -34,7 +34,7 @@ export function displayLoggedInNavBar(navList, profile, path) {
 </li>
 <li
   class="hover:cursor-pointer  transition-all flex gap-2 items-center ${
-    path === "/profile/"
+    path === "/profile/" 
       ? "opacity-100 underline underline-offset-4"
       : "opacity-70 hover:opacity-100 hover:underline hover:underline-offset-4"
   } "

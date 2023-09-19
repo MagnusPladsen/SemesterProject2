@@ -33,6 +33,33 @@ export function getProfile() {
 }
 
 /**
+ * @function getCredits
+ * @description This module gets the credits from local storage.
+ * @returns {credits} credits
+ */
+
+export function getCredits() {
+  const profile = getProfile();
+  const credits = profile.credits;
+  return JSON.parse(credits);
+}
+
+/**
+ * @function updateCredits
+ * @param {credits} credits
+ * @description This module saves the credits to local storage.
+ * @returns {void}
+ * @example
+ * updateCredits(10);
+ */
+
+export function updateCredits(credits) {
+  const profile = getProfile();
+  profile.credits = credits;
+  saveProfile(profile);
+}
+
+/**
  * @function saveToken
  * @param {string} token
  * @description This module saves the token to local storage.

@@ -2,6 +2,8 @@ export * from "./create.mjs";
 export * from "./get.mjs";
 export * from "./delete.mjs";
 export * from "./update.mjs";
+export * from "./bid.mjs";
+
 
 /**
  * @module listings
@@ -10,4 +12,5 @@ export * from "./update.mjs";
  * @see module:listings/get
  * @see module:listings/delete
  * @see module:listings/update
+ * @see module:listings/bid
  */
