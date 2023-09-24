@@ -33,7 +33,6 @@ export async function setBidOnListingListener(highestBid) {
       bidError.classList.add("hidden");
       bidAmountField.classList.remove("border-red-500");
       const updatedListing = await listings.bidOnListing(listingId, bidAmount);
-      console.log(updatedListing);
       display.displayListing();
       const newCredits = oldCredits - bidAmount;
       storage.updateCredits(newCredits);

@@ -37,9 +37,19 @@ export async function displaylistings(listingsArray) {
             listing.title
           }</p>
           <p class="text-left pb-4">${listing.description}</p>
-          <div class="flex items-center justify-between w-full gap-5 text-xs font-bold text-gray-400">
+          <div class="flex items-start justify-between w-full gap-5 text-xs font-bold text-gray-400">
+          <div class="flex flex-col gap-1 items-start">
+          ${
+            listing.bids.length > 0
+              ? `<p class="">Price: ${
+                  listing.bids[listing.bids.length - 1].amount
+                }
+          </p>`
+              : ""
+          }
             <p class="">Ending: ${listing.endsAt.slice(0, 10)}
             </p>
+</div>
               <p>By:
                 <span class="font-bold group-hover:text-black">${
                   listing.seller.name

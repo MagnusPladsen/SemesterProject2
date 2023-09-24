@@ -37,7 +37,7 @@ export async function getListing(id) {
  */
 
 export async function getlistings(tag, sortType) {
-  const url = `${API_URL}${action}?_seller=true${tag ? `&_tag=${tag}` : ""}${
+  const url = `${API_URL}${action}?_seller=true&_bids=true${tag ? `&_tag=${tag}` : ""}${
     sortType ? `&sort=created&sortOrder=${sortType}` : ""
   }`;
 
