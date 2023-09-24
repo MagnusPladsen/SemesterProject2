@@ -50,15 +50,18 @@
           class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-primary w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
           id="navList"
         >
-          <li
-            class="hover:cursor-pointer underline underline-offset-4 opacity-100 transition-all"
-          >
-            <a href="/"> Log in </a>
+          <li class="hover:cursor-pointer opacity-70 transition-all">
+            <a href="/index.html"> Home </a>
           </li>
           <li
-            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
+            class="hover:cursor-pointer opacity-70 transition-all"
           >
-            <a href="/profile/register/"> Register </a>
+            <a href="/listings"> Listings </a>
+          </li>
+          <li
+            class="hover:cursor-pointer underline underline-offset-4 opacity-100 hover:opacity-100 hover:underline hover:underline-offset-4  transition-all"
+          >
+            <a href="/profile/"> Log in </a>
           </li>
         </ul>
       </nav>
@@ -93,17 +96,26 @@
             class="hidden rounded text-red-500 p-2 border border-red-500"
           ></p>
           <button
-            class="px-4 py-2 border bg-primary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
+            class="px-4 py-2 border bg-primary hover:text-secondary border-primary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
             type="submit"
           >
             Log in
           </button>
         </form>
         <div
-          class="pt-5 text-sm hover:cursor-pointer hover:underline hover:underline-offset-2 transition-all"
+          class="py-5 text-sm hover:cursor-pointer hover:underline hover:underline-offset-2 transition-all"
         >
           <a href="/profile/register">Register a new user</a>
         </div>
+
+        <a href="/listings/">
+          <button
+            class="px-4 py-2 border bg-white hover:text-white border-primary hover:bg-primary rounded w-fit mx-auto text-primary transition-all hover:scale-110"
+            type="submit"
+          >
+            View listings
+          </button></a
+        >
       </main>
     </header>
     <footer>

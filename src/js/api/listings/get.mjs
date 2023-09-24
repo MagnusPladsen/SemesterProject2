@@ -1,5 +1,5 @@
 import { API_URL } from "../constants.mjs";
-import { authFetch } from "../auth/authFetch.mjs";
+import { authFetch, unAuthFetch } from "../auth/authFetch.mjs";
 
 const action = "/listings";
 const method = "GET";
@@ -41,7 +41,7 @@ export async function getlistings(tag, sortType) {
     sortType ? `&sort=created&sortOrder=${sortType}` : ""
   }`;
 
-  const response = await authFetch(url, {
+  const response = await unAuthFetch(url, {
     method,
   });
 

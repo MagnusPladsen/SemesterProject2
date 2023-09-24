@@ -20,10 +20,14 @@ export async function displayListing() {
   if (!listing) {
     return;
   }
-  console.log(listing);
+
+  if (!loggedInUser) {
+    const bidContainer = document.querySelector("#bidContainer");
+    bidContainer.innerHTML = `<p class="text-center">You need to be logged in to bid on this listing</p>`;
+  }
 
   /* If on own listing */
-  if (path === "/profile/listing/") {
+  if (path === "/profile/listing/" && !loggedInUser) {
     const deleteListing = document.querySelector("#deleteListing");
     deleteListing.addEventListener("click", async (e) => {
       e.preventDefault();
@@ -38,12 +42,20 @@ export async function displayListing() {
   }
 
   /* If on others listing */
-  if (path === "/listing/") {
+  if (path === "/listing/" && !loggedInUser) {
     const bidContainer = document.querySelector("#bidContainer");
+    const bidAmount = document.querySelector("#bidAmount");
+    const highestBid = listing.bids[listing.bids.length - 1].amount;
+    if (!!highestBid) {
+      bidAmount.placeholder = `Bid between ${highestBid} and ${loggedInUser.credits}`;
+    }
     if (new Date(listing.endsAt) < new Date()) {
       bidContainer.innerHTML = `<p class="text-center">This listing has ended</p>`;
     }
-    setBidOnListingListener();
+    if (listing.seller.name === loggedInUser.name) {
+      bidContainer.innerHTML = "";
+    }
+    setBidOnListingListener(highestBid);
   }
 
   const listingTitle = document.querySelector("#listingTitle");
@@ -115,9 +127,11 @@ export async function displayListing() {
           10
         )}</span></p>
         <p class="">Bidder:
-       <a class="hover:font-bold" href="/profile/user?name=${bid.bidderName}">${
-          bid.bidderName === loggedInUser.name ? `You` : bid.bidderName
-        }</a>
+       <a class="hover:font-bold" href="${
+         bid.bidderName === loggedInUser.name
+           ? `/profile`
+           : "/profile/user?name=${bid.bidderName}"
+       }">${bid.bidderName === loggedInUser.name ? `You` : bid.bidderName}</a>
         </div>`
       )}
     </div>

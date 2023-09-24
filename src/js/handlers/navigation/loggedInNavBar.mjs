@@ -20,5 +20,7 @@ export function setLoggedInNavBarListener() {
   if (storage.checkIfLoggedIn()) {
     const profile = storage.getProfile();
     display.displayLoggedInNavBar(navList, profile, path);
+  } else {
+    display.displayLoggedOutNavBar(navList, path);
   }
 }

@@ -35,3 +35,10 @@ export async function authFetch(url, options) {
     headers: headers(),
   });
 }
+
+export async function unAuthFetch(url, options) {
+  return fetch(url, {
+    ...options,
+    headers: headers(),
+  });
+}

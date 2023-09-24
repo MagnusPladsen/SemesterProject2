@@ -16,7 +16,9 @@ export function setLoggedInChecker() {
     !storage.checkIfLoggedIn() &&
     path !== "/" &&
     path !== "/index.html" &&
-    path !== "/profile/register/"
+    path !== "/profile/register/" &&
+    path !== "/listings/" &&
+    path !== "/listing/"
   ) {
     window.location.href = "/";
   }

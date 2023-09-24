@@ -18,18 +18,20 @@ export function setCreateListingListener() {
     const form = e.target;
     const formData = new FormData(form);
     const listing = Object.fromEntries(formData.entries());
-    console.log(listing)
+    console.log(listing);
 
     // set up tags array
     listing.tags = listing.tags.split(",").map((tag) => tag.trim());
-    
+
     listing.media = listing.media.split(",").map((media) => media.trim());
 
     // send to API
     const returnedListing = await listings.createListing(listing);
-    console.log(returnedListing)
+    console.log(returnedListing);
 
     // redirect to listing page
-    window.location.href = `/listing/?id=${returnedListing.id}`;
+    if (!!returnedListing) {
+      window.location.href = `/listing/?id=${returnedListing.id}`;
+    }
   });
 }

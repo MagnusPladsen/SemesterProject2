@@ -22,38 +22,43 @@
   <body>
     <header>
       <nav
-        class="flex px-[10vw] md:px-10 py-5 bg-primary justify-between relative"
+      class="flex px-[10vw] md:px-10 py-5 bg-primary justify-between relative"
+    >
+      <div
+        class="text-white text-2xl hover:underline hover:underline-offset-2 hover:opacity-80 flex gap-2 justify-center items-center transition-all"
       >
-        <div
-          class="text-white text-2xl hover:underline hover:underline-offset-2 hover:opacity-80 flex gap-2 justify-center items-center transition-all"
-        >
-          <img
-            src="/src/images/favicon.svg"
-            alt="logo"
-            class="w-10 h-10 inline-block mr-2"
-          />
-          <a href="/">NorAuc</a>
-        </div>
         <img
-          src="/src/images/hamburger.svg"
-          alt="hamburger menu"
-          class="w-10 h-10 lg:hidden"
-          id="hamburger"
+          src="/src/images/favicon.svg"
+          alt="logo"
+          class="w-10 h-10 inline-block mr-2"
         />
-        <ul
-          id="navList"
-          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-primary w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
+        <a href="/">NorAuc</a>
+      </div>
+      <img
+        src="/src/images/hamburger.svg"
+        alt="hamburger menu"
+        class="w-10 h-10 lg:hidden"
+        id="hamburger"
+      />
+      <ul
+        class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-primary w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
+        id="navList"
+      >
+        <li class="hover:cursor-pointer transition-all">
+          <a href="/index.html"> Home </a>
+        </li>
+        <li
+          class="hover:cursor-pointer underline underline-offset-4 opacity-100 transition-all"
         >
-          <li
-            class="hover:cursor-pointer transition-all underline underline-offset-4 opacity-100"
-          >
-            <a href="/"> Log in </a>
-          </li>
-          <li class="hover:cursor-pointer transition-all opacity-70">
-            <a href="/profile/register/"> Register </a>
-          </li>
-        </ul>
-      </nav>
+          <a href="/listings"> Listings </a>
+        </li>
+        <li
+          class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
+        >
+          <a href="/profile/"> Profile </a>
+        </li>
+      </ul>
+    </nav>
     </header>
     <main class="text-center w-full py-10 md:px-[20vw]">
       <h1 class="text-2xl py-5">Recent listings</h1>

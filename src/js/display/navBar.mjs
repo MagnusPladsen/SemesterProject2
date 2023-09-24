@@ -34,7 +34,7 @@ export function displayLoggedInNavBar(navList, profile, path) {
 </li>
 <li
   class="hover:cursor-pointer  transition-all flex gap-2 items-center ${
-    path === "/profile/" 
+    path === "/profile/"
       ? "opacity-100 underline underline-offset-4"
       : "opacity-70 hover:opacity-100 hover:underline hover:underline-offset-4"
   } "
@@ -51,6 +51,28 @@ height="30"
 width="30"
 class="rounded-full transition-all border-white border"
 />
+</li>
+`;
+}
+
+export function displayLoggedOutNavBar(navList, path) {
+  navList.innerHTML = `
+<li class="hover:cursor-pointer transition-all ${
+    path === "/listings/"
+      ? "opacity-100 underline underline-offset-4"
+      : "opacity-70 hover:opacity-100 hover:underline hover:underline-offset-4"
+  } ">
+  <a href="/listings/"> Listings </a>
+</li>
+<li
+  class="hover:cursor-pointer  transition-all flex gap-2 items-center ${
+    path === "/"
+      ? "opacity-100 underline underline-offset-4"
+      : "opacity-70 hover:opacity-100 hover:underline hover:underline-offset-4"
+  } "
+>
+
+  <a href="/"> Log in </a>
 </li>
 `;
 }
