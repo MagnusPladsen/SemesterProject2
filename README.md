@@ -2,6 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7fa71ca4-823f-4c36-994d-7d4332722476/deploy-status)](https://app.netlify.com/sites/norauc/deploys)
 
+https://norauc.netlify.app/
+
 ## Goal
 To take the skills learned over the past three semesters and create an auction website.
 
